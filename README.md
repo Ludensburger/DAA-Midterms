@@ -1,29 +1,54 @@
-**DAA-Midterms Compilation**
+# DAA-Midterms Compilation
 
-Project Title: Programming Lessons Compilation
+## Project Title: Programming Lessons Compilation
+
 This project is a compilation of various programming lessons and tasks that have been implemented. It serves as a practical application of the concepts learned during the lessons.
 
-Features
+## Features
+
 The program includes the following features:
 
-Josephus Problem: This feature allows the user to solve the Josephus problem. The user inputs the total population and the number of skips, and the program outputs the position that survives.
+- **Power Function (A):**
+  This feature computes the power of a given base to a given exponent using recursion.
 
-Merge Sort: This feature allows the user to sort an array of integers using the merge sort algorithm. The user inputs the size of the array and the elements of the array, and the program outputs the sorted array.
+- **GCD Function (B):**
+  This feature calculates the greatest common divisor (GCD) of two integers using recursion.
 
-How to Run
-To run the program, compile the main.c file using a C compiler and then run the resulting executable. For example, if you're using the GCC compiler, you can use the following commands:
+- **Insertion Sort (C):**
+  This feature sorts an array of integers using the insertion sort algorithm. The user inputs the size of the array and the elements of the array, and the program outputs the sorted array.
 
+- **Permutations (D):**
+  This feature generates all permutations of a given set of integers.
+
+- **Josephus Problem (E):**
+  This feature implements the Josephus problem (Counting-out Game) algorithm to determine the survivor position.
+
+- **Merge Sort (F):**
+  This feature sorts an array of integers using the merge sort algorithm.
+
+## How to Run
+
+To run the program, compile the `main.c` file using a C compiler and then run the resulting executable. For example, if you're using the GCC compiler, you can use the following commands:
+
+To compile and run the program, use the following commands:
+
+```bash
 gcc main.c -o main
 ./main
+```
 
-How to Use
+## How to Use
+
 After running the program, follow the prompts to use each feature. For the Josephus problem, enter the total population and the number of skips when prompted. For the merge sort feature, enter the size of the array and the elements of the array when prompted.
 
-Future Work
+## Future Work
+
 Future updates may include additional features based on upcoming lessons and tasks.
 
-Contributing
+##  Contributing
+
 As this is a personal project based on individual lessons and tasks, contributions are not currently being accepted.
 
-License
+##  License
+
 This project is for educational purposes and is not licensed for other use.
