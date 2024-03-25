@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h> // for system() function
 
 void merge(const int *leftArr, int leftSize, const int *rightArr, int rightSize, int *arr);
 
@@ -363,6 +364,18 @@ int main() {
             // show the sorted array
             printMerge(arr, size);
 
+            break;
+        }
+
+        case 'g': {
+            printf("Running GaussianElimination.c...\n");
+            // Execute the compiled GaussianElimination program
+            int result = system("\"C:\\Users\\hp\\Desktop\\Ryu Files\\Codes\\C-Programming\\CPP\\Midterms-AlgoStudy\\GaussianElimination\\GaussianElimination.exe\"");
+            if (result == -1) {
+                perror("Error running GaussianElimination.c");
+            } else {
+                printf("GaussianElimination.c execution finished with return code: %d.\n", result);
+            }
             break;
         }
 
