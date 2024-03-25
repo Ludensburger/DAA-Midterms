@@ -26,6 +26,9 @@ The program includes the following features:
 - **Merge Sort (F):**
   This feature sorts an array of integers using the merge sort algorithm.
 
+  - **Gaussian Elimination (G):**
+  This feature solves a system of linear equations using the Gaussian Elimination method.
+
 ## How to Run
 
 To run the program, compile the `main.c` file using a C compiler and then run the resulting executable. For example, if you're using the GCC compiler, you can use the following commands:
