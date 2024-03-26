@@ -83,6 +83,8 @@ int main() {
     // zero-based index
     int n = sizeof(P) / sizeof(P[0]) - 1;
 
+    printf("Given: P(x) = 2x^4 - x^3 + 3x^2 + x - 5\n");
+
     printf("Enter the value of x: ");
     scanf("%d", &x);
 
@@ -91,8 +93,6 @@ int main() {
         printf("The value of the polynomial at x is: %d\n", P[0]);
         return 0;
     }
-
-    printf("Given: P(x) = 2x^4 - x^3 + 3x^2 + x - 5\n");
 
     // printf("Given: P(x) = 2x^3 - x^2 + x + 1\n");
 
