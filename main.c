@@ -1,3 +1,6 @@
+// AUTHOR: Ryu R. Mendoza
+// DATE: March 26, 2024
+
 #include <stdio.h>
 #include <stdlib.h> // for system() function
 
@@ -379,7 +382,20 @@ int main() {
             break;
         }
 
-            // EXIT
+        case 'h': {
+            printf("Running HornersAlgorithm.c...\n");
+            // Execute the compiled HornersAlgorithm program
+            int result = system("\"C:\\Users\\hp\\Desktop\\Ryu Files\\Codes\\C-Programming\\CPP\\Midterms-AlgoStudy\\HornersAlgorithm\\HornersAlgorithm.exe\"");
+            if (result == -1) {
+                perror("Error running HornersAlgorithm.c");
+            } else {
+                printf("HornersAlgorithm.c execution finished with return code: %d.\n", result);
+            }
+
+            break;
+        }
+
+        // EXIT
         case 'x': {
             printf("Exiting...\n");
             break;
