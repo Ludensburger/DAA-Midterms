@@ -7,6 +7,7 @@
 // Program References:
 // Introduction to the Design and Analysis of Algorithms, 3rd edition - Anany Levitin
 
+// c) Implement Gauss elimination algorithm. You may use the sample system of equations in the PDF as your test data.
 #include <stdio.h>
 
 // Row and Column size of the matrix

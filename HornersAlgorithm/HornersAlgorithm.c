@@ -1,6 +1,7 @@
 // AUTHOR: Ryu R. Mendoza
 // DATE: March 26, 2024
 
+#include <math.h>
 #include <stdio.h>
 
 // ALGORITHM Horner(P [0..n], x)
@@ -52,6 +53,7 @@ int reverseArray(int *P, int arraySize) {
     return *P;
 }
 
+// a) Horner's algorithm for find the value of a polynomial at a given value of x (user input).
 // My Implementation starts at index 0
 // Standard, starts at index 1 where first element is the highest degree
 void Horner(int coefficients[], int degree, int x) {
@@ -87,6 +89,29 @@ void HornerBook(int coefficients[], int degree, int x) {
     }
     printf("Book Implementation\n");
     printf("The value of the polynomial at x = %d is: %d\n", x, p);
+    printf("\n");
+}
+
+// b) use Brute force algorithm to do the same problem. Both algorithms are found in LEVITIN's 3rd Edition.
+void BruteForce(int coefficients[], int degree, int x) {
+
+    // Interprets the coefficients in this manner
+    // 2 + -1*x + 3*x^2 + 1*x^3 - 5*x^4
+    // skipping the constant first element
+
+    // The BruteForce function treats the first element of the coefficients array as the coefficient
+    // of the term with the lowest degree (the constant term), and the last element as the coefficient of
+    // the term with the highest degree.
+    // This way, there's no need to reverse the array.
+
+    int p = 0;
+
+    for (int i = 0; i <= degree; i++) {
+        p += coefficients[i] * pow(x, i);
+    }
+
+    printf("Brute Force\n");
+    printf("The value of the polynomial at x = %d is: %d\n", x, p);
 }
 
 int main() {
@@ -117,6 +142,7 @@ int main() {
 
     Horner(coefficients, n, x);
     HornerBook(coefficients, n, x);
+    BruteForce(coefficients, n, x);
 
     return 0;
 }
