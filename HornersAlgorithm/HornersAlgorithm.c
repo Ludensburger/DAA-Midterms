@@ -86,6 +86,12 @@ int main() {
     printf("Enter the value of x: ");
     scanf("%d", &x);
 
+    if (n == 0) {
+        printf("The polynomial is of degree 0\n");
+        printf("The value of the polynomial at x is: %d\n", P[0]);
+        return 0;
+    }
+
     printf("Given: P(x) = 2x^4 - x^3 + 3x^2 + x - 5\n");
 
     // printf("Given: P(x) = 2x^3 - x^2 + x + 1\n");
