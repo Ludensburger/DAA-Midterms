@@ -26,6 +26,22 @@ The program includes the following features:
 - **Merge Sort (F):**
   This feature sorts an array of integers using the merge sort algorithm.
 
+  - **Gaussian Elimination (G):**
+  This feature solves a system of linear equations using the Gaussian Elimination method.
+
+    **Description:**  
+    This feature solves a system of linear equations using Gaussian Elimination method.
+    
+    **Implementation Details:**  
+    The Gaussian Elimination feature is implemented in a separate C file named GaussianElimination.c, which is located in a subfolder named GaussianElimination. To use this feature, make sure that the directory hierarchy is maintained as follows:
+```bash
+project_folder/
+├── main.c
+└── GaussianElimination/
+    └── GaussianElimination.c
+```
+The main program references the location of GaussianElimination.c to execute the Gaussian Elimination feature. If your directory structure is different, you may need to update the file paths in the code accordingly.
+
 ## How to Run
 
 To run the program, compile the `main.c` file using a C compiler and then run the resulting executable. For example, if you're using the GCC compiler, you can use the following commands:
