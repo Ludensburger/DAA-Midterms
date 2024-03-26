@@ -21,6 +21,7 @@ void Horner(int P[], int n, int x) {
         p = x * p + P[i];
     }
 
+    printf("My Implementation\n");
     printf("The value of the polynomial at x is: %d\n", p);
 }
 
@@ -37,9 +38,11 @@ int reverseArray(int *P, int n) {
         end--;
     }
 
-    for (int i = 0; i <= n; i++) {
-        printf("%d ", P[i]);
-    }
+    // display
+    // for (int i = 0; i <= n; i++) {
+    //     printf("%d ", P[i]);
+    // }
+
     printf("\n");
     return *P;
 }
@@ -63,7 +66,7 @@ void HornerBook(int P[], int n, int x) {
     for (int i = n - 1; i >= 0; i--) {
         p = x * p + P[i];
     }
-
+    printf("Book Implementation\n");
     printf("The value of the polynomial at x is: %d\n", p);
 }
 
