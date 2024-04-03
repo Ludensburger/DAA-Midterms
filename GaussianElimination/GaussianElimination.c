@@ -110,7 +110,7 @@ int main() {
         printf("\n");
     }
 
-    // Then we converting the remaining numbers below the Diagonal to 0
+    // Then we convert the remaining numbers below the Diagonal to 0
     // Starting at Row 3 turn the second element of the row to 0
     // Given formula: R3 = R3 - (R3C2 / R2C2) * R2
 
