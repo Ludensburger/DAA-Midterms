@@ -242,5 +242,9 @@ int main() {
         return 0;
     }
 
+    printf("\n\n");
+    printf("Programmed by Ryu R. Mendoza\n");
+    printf("Thank you for using the program.\n");
+
     return 0;
 }
