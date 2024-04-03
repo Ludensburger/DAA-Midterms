@@ -14,12 +14,11 @@
 #define ROWS 3
 #define COLS 4
 
-int main() {
+float matrix[ROWS][COLS] = {{3, -2, 8, 9},
+                            {-2, 2, 1, 3},
+                            {1, 2, -3, 8}};
 
-    float matrix[ROWS][COLS] = {{3, -2, 8, 9},
-                                {-2, 2, 1, 3},
-                                {1, 2, -3, 8}};
-
+int gaussian_elimination(float matrix[ROWS][COLS]) {
     // Taking input from the user
     // printf("Enter the elements of the 3x4 matrix:\n");
     // for (int i = 0; i < ROWS; i++) {
@@ -143,10 +142,105 @@ int main() {
         printf("\n");
     }
 
-    // printf("\nBack substitutions:\n");
-    // printf("z = (-2) / 2 = -1, \n");
-    // printf("y = (3 - (-3) z ) / 3 = 0, \n");
-    // printf("x = (1 - z - (-1) y ) /2 = 1 \n\n");
+    // Ask the user if they want to process the diagonal
+    char userResponse;
+    printf("\nDo you want to process the diagonal to turn the values to 1? (y/n): ");
+    scanf(" %c", &userResponse);
+
+    if (userResponse == 'y' || userResponse == 'Y') {
+        // Process the diagonal
+        for (int i = 0; i < ROWS; i++) {
+            if (matrix[i][i] == 0) {
+                printf("Mathematical error: Division by zero\n");
+                return -1;
+            }
+
+            float divisor = matrix[i][i];
+            for (int j = 0; j < COLS; j++) {
+                matrix[i][j] /= divisor;
+            }
+        }
+
+        // Print the matrix after processing the diagonal
+        printf("\nMatrix after processing the diagonal:\n");
+        for (int i = 0; i < ROWS; i++) {
+            for (int j = 0; j < COLS; j++) {
+                printf("%.1f\t", matrix[i][j]);
+                if (j == 2) {
+                    printf("| ");
+                }
+            }
+            printf("\n");
+        }
+    }
+
+    // Displaying the matrix after Gaussian Elimination
+    printf("\n");
+    printf("The constants are: \n");
+    for (int i = 0; i < ROWS; i++) {
+        printf("R%d Constant: %.1f\n", i + 1, matrix[i][3]);
+    }
+
+    printf("\nBack substitutions:\n");
+
+    float z = matrix[2][3] / matrix[2][2];
+    float y = (matrix[1][3] - matrix[1][2] * z) / matrix[1][1];
+    float x = (matrix[0][3] - matrix[0][2] * z - matrix[0][1] * y) / matrix[0][0];
+
+    printf("z = %.2f / %.2f = %.2f, \n", matrix[2][3], matrix[2][2], z);
+    printf("y = (%.2f - %.2f * %.2f) / %.2f = %.2f, \n", matrix[1][3], matrix[1][2], z, matrix[1][1], y);
+    printf("x = (%.2f - %.2f * %.2f - %.2f * %.2f) / %.2f = %.2f \n\n", matrix[0][3], matrix[0][2], z, matrix[0][1], y, matrix[0][0], x);
+
+    printf("The solution to the system of equations is: \n");
+    printf("x = %.1f, y = %.1f, z = %.1f\n", x, y, z);
+
+    return 0;
+}
+
+void input_polynomial(float matrix[ROWS][COLS]) {
+    // Taking input from the user
+    printf("Enter the elements of the 3x4 matrix:\n");
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            printf("Enter element at position [%d][%d]: ", i + 1, j + 1);
+            scanf("%f", &matrix[i][j]);
+        }
+    }
+}
+
+int main() {
+
+    int choice;
+    printf("Welcome to Gaussian Elimination Program\n");
+    printf("Choose an option:\n");
+    printf("1. Solve with preloaded matrix\n");
+    printf("2. Input a new matrix\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    switch (choice) {
+    case 1:
+        // Use the preloaded matrix and solve
+        printf("Using preloaded matrix:\n");
+
+        int result = gaussian_elimination(matrix);
+
+        if (result == -1) {
+            printf("An error occurred during Gaussian elimination.\n");
+            return -1;
+        }
+        break;
+
+    case 2:
+        // Input a new matrix and solve
+        input_polynomial(matrix);
+        // Call gaussian_elimination only once here
+        gaussian_elimination(matrix);
+        break;
+    default:
+        printf("Invalid choice.\n");
+        return 0;
+    }
 
     return 0;
 }
